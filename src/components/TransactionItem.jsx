@@ -65,3 +65,4 @@ const TransactionItem = ({ transaction, formatCurrency }) => {
 };
 
 export default TransactionItem;
+

@@ -1,66 +1,68 @@
-# 🏦 NovaTrust Bank - Bank Management System
+# NovaTrust Bank - Bank Management System
 
-A modern, responsive, and feature-rich **Bank Management System** built with **React 18**, **Vite**, and **React Router DOM**. This application simulates core banking operations including account balance inquiry, instant money deposits, secured fund withdrawals with overdraft protection, and an interactive transaction audit trail.
+A modern, responsive, and feature-rich Bank Management System built with React 18, Vite, and React Router DOM. This application simulates core banking operations including account balance inquiry, instant money deposits, secured fund withdrawals with overdraft protection, and an interactive transaction audit trail.
 
 ---
 
-## 📋 Table of Contents
-- [Project Overview](#-project-overview)
-- [Key Features](#-key-features)
-  - [Core Requirements (Tasks 1–6)](#core-requirements-tasks-16)
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+  - [Core Requirements (Tasks 1-6)](#core-requirements-tasks-1-6)
   - [Bonus Tasks Implemented](#bonus-tasks-implemented)
-- [Folder Structure](#-folder-structure)
-- [Tech Stack](#-tech-stack)
-- [Getting Started & Installation](#-getting-started--installation)
-- [GitHub Upload Guide](#-github-upload-guide)
-- [Component Architecture & Hooks](#-component-architecture--hooks)
+- [Folder Structure](#folder-structure)
+- [Tech Stack](#tech-stack)
+- [Getting Started and Installation](#getting-started-and-installation)
+- [GitHub Repository and Deployment](#github-repository-and-deployment)
+- [Component Architecture and Hooks](#component-architecture-and-hooks)
+- [Author](#author)
+- [License](#license)
 
 ---
 
-## 🌟 Project Overview
+## Project Overview
 NovaTrust Bank Management System allows users to:
-1. View overall account details and real-time financial metrics on a dedicated **Dashboard**.
-2. **Deposit funds** with instant balance updating, input validation, and quick-preset buttons.
-3. **Withdraw funds** with real-time balance safeguards, overdraft prevention, and authorization confirmation.
-4. Review an itemized **Transaction History** complete with type indicators, timestamps, balance snapshots, and filters.
-5. Persist all balances and transaction activities across browser refreshes via `localStorage`.
+1. View overall account details and real-time financial metrics on a dedicated Dashboard.
+2. Deposit funds with instant balance updating, input validation, and quick-preset buttons.
+3. Withdraw funds with real-time balance safeguards, overdraft prevention, and authorization confirmation.
+4. Review an itemized Transaction History complete with type indicators, timestamps, balance snapshots, and filters.
+5. Persist all balances and transaction activities across browser refreshes via localStorage.
 
-> **Note:** This is a simulated frontend-only banking practice project. No real bank accounts or financial transfers occur.
+> Note: This is a simulated frontend-only banking practice project. No real bank accounts or financial transfers occur.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### Core Requirements (Tasks 1–6)
+### Core Requirements (Tasks 1-6)
 
 #### Task 1: Dashboard
-- **Bank Identity:** Displays bank name (*NovaTrust Bank*) and application title (*Bank Management System*).
-- **Account Holder Information:** Name (*Sarah Jenkins*), account number (`NTB-8842-9103`), routing number, branch, and active verification status.
-- **Financial Metric Cards:**
+- Bank Identity: Displays bank name (*NovaTrust Bank*) and application title (*Bank Management System*).
+- Account Holder Information: Name (*Sarah Jenkins*), account number (`NTB-8842-9103`), routing number, branch, and active verification status.
+- Financial Metric Cards:
   - Current Account Balance (with live indicator)
   - Total Lifetime Deposited
   - Total Lifetime Withdrawn
-  - Net Cash Position & Activity Count
-- **Recent Activity Preview:** Displays the latest transactions with quick navigation to the complete ledger.
+  - Net Cash Position and Activity Count
+- Recent Activity Preview: Displays the latest transactions with quick navigation to the complete ledger.
 
 #### Task 2: Deposit Money (`/deposit`)
 - Deposit form with amount input, optional transaction note/memo, and a submit button.
 - Manages state via `useState` and handles submission using `onSubmit`.
-- **Validation:**
+- Validation:
   - Blocks empty values.
   - Blocks zero or negative values (`<= 0`).
-- **Immediate Balance Update:** The account balance updates instantly upon successful deposit.
-- **Success Feedback:** Displays a detailed success alert with the deposited sum and the newly calculated balance.
-- **Quick Preset Amounts:** Fast one-click buttons (`+$50`, `+$100`, `+$250`, `+$500`, `+$1000`).
+- Immediate Balance Update: The account balance updates instantly upon successful deposit.
+- Success Feedback: Displays a detailed success alert with the deposited sum and the newly calculated balance.
+- Quick Preset Amounts: Fast one-click buttons (`+$50`, `+$100`, `+$250`, `+$500`, `+$1000`).
 
 #### Task 3: Withdraw Money (`/withdraw`)
 - Withdrawal form with real-time balance comparison.
-- **Safeguards & Validation:**
+- Safeguards and Validation:
   - Prevents withdrawals greater than available account balance (overdraft protection).
   - Blocks zero, negative, or non-numeric inputs.
   - Displays dynamic contextual warnings when the entered amount exceeds available funds.
-- **Immediate Balance Update:** Deducts funds and updates the ledger synchronously upon confirmation.
-- **Success & Error Messaging:** Distinct alert banners for successful payouts or rejection errors.
+- Immediate Balance Update: Deducts funds and updates the ledger synchronously upon confirmation.
+- Success and Error Messaging: Distinct alert banners for successful payouts or rejection errors.
 
 #### Task 4: Transaction History (`/transactions`)
 - Itemized statement displaying:
@@ -70,16 +72,16 @@ NovaTrust Bank Management System allows users to:
   - Note / Purpose description
   - Resulting balance after each operation
 - Iterated with `.map()` from context state.
-- **Conditional Rendering:** If no transactions exist, displays a clean empty state with an icon and guidance.
-- **Interactive Controls:** Filter by *All*, *Deposits*, or *Withdrawals*, plus instant text search across notes and amounts.
+- Conditional Rendering: If no transactions exist, displays a clean empty state with an icon and guidance.
+- Interactive Controls: Filter by *All*, *Deposits*, or *Withdrawals*, plus instant text search across notes and amounts.
 
 #### Task 5: Navigation
 - Persistent, responsive navigation bar using React Router DOM (`NavLink`).
 - Seamless page switching without page reloads:
-  - `/` — Dashboard
-  - `/deposit` — Deposit
-  - `/withdraw` — Withdraw
-  - `/transactions` — Transaction History
+  - `/` - Dashboard
+  - `/deposit` - Deposit
+  - `/withdraw` - Withdraw
+  - `/transactions` - Transaction History
 - Active link styling and visual indicators.
 - Mobile drawer navigation for responsive mobile viewports.
 - Live balance badge directly in the header for quick reference across all pages.
@@ -95,17 +97,17 @@ NovaTrust Bank Management System allows users to:
 
 ---
 
-### 🎁 Bonus Tasks Implemented
+### Bonus Tasks Implemented
 
-- ✅ **`useRef` Input Auto-Focus:** Both `DepositForm` and `WithdrawForm` utilize `useRef` to automatically focus the amount input on component mount and immediately after every successful transaction.
-- ✅ **Context API State Sharing:** `BankContext.jsx` centrally provides account data, balance, transaction history, and mutation methods across all pages and components without prop drilling.
-- ✅ **`localStorage` Persistence:** Account balance and transaction history are automatically saved in `localStorage`, maintaining state even after page reloads or closing the browser.
-- ✅ **Pre-Withdrawal Confirmation Modal:** An interactive authorization modal appears before executing any withdrawal, displaying the requested sum, current balance, and remaining balance.
-- ✅ **Testing / Demo Tools:** Includes convenient buttons to **Reset Sample Data** or **Clear Transactions** to easily test and evaluate the conditional empty state rendering.
+- **`useRef` Input Auto-Focus:** Both `DepositForm` and `WithdrawForm` utilize `useRef` to automatically focus the amount input on component mount and immediately after every successful transaction.
+- **Context API State Sharing:** `BankContext.jsx` centrally provides account data, balance, transaction history, and mutation methods across all pages and components without prop drilling.
+- **`localStorage` Persistence:** Account balance and transaction history are automatically saved in `localStorage`, maintaining state even after page reloads or closing the browser.
+- **Pre-Withdrawal Confirmation Modal:** An interactive authorization modal appears before executing any withdrawal, displaying the requested sum, current balance, and remaining balance.
+- **Testing / Demo Tools:** Includes convenient buttons to **Reset Sample Data** or **Clear Transactions** to easily test and evaluate the conditional empty state rendering.
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```text
 bank-management/
@@ -136,25 +138,25 @@ bank-management/
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Framework:** [React 18](https://react.dev/)
-- **Build Tool:** [Vite 6](https://vitejs.dev/)
-- **Routing:** [React Router DOM v6](https://reactrouter.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Styling:** Custom Vanilla CSS with CSS Variables & Responsive Flexbox/Grid
-- **State Persistence:** Browser `localStorage` API
+- Framework: [React 18](https://react.dev/)
+- Build Tool: [Vite 6](https://vitejs.dev/)
+- Routing: [React Router DOM v6](https://reactrouter.com/)
+- Icons: [Lucide React](https://lucide.dev/)
+- Styling: Custom Vanilla CSS with CSS Variables and Responsive Flexbox/Grid
+- State Persistence: Browser `localStorage` API
 
 ---
 
-## 💻 Getting Started & Installation
+## Getting Started and Installation
 
 ### Prerequisites
-Make sure you have **Node.js** (v16 or higher) and **npm** installed on your system.
+Make sure you have Node.js (v16 or higher) and npm installed on your system.
 
-### 1. Clone or Open the Repository
+### 1. Clone the Repository
 ```bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/MehdiHossenFahim/bank-management.git
 cd bank-management
 ```
 
@@ -184,39 +186,21 @@ npm run preview
 
 ---
 
-## 📤 GitHub Upload Guide
+## GitHub Repository and Deployment
 
-Follow these steps to upload this project to your public GitHub repository:
+Repository URL:
+`https://github.com/MehdiHossenFahim/bank-management`
 
-1. **Initialize Git Repository** (if not already initialized):
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: complete Bank Management System with all core and bonus tasks"
-   ```
-
-2. **Create a New Repository on GitHub**:
-   - Go to [GitHub.com](https://github.com/new).
-   - Enter repository name: `bank-management-system`.
-   - Set visibility to **Public**.
-   - Do **not** initialize with a README, .gitignore, or license (already included).
-   - Click **Create repository**.
-
-3. **Link and Push to GitHub**:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/<YOUR-USERNAME>/bank-management-system.git
-   git push -u origin main
-   ```
-
-4. **Copy Your Public Link**:
-   Your repository URL will be:
-   `https://github.com/<YOUR-USERNAME>/bank-management-system`
-   Submit this URL for your assignment submission.
+Git Remote and Branch Configuration:
+```bash
+git remote add origin https://github.com/MehdiHossenFahim/bank-management.git
+git branch -M main
+git push -u origin main
+```
 
 ---
 
-## 🧠 Component Architecture & Hooks
+## Component Architecture and Hooks
 
 | Component / File | Hooks Used | Primary Purpose |
 | :--- | :--- | :--- |
@@ -230,5 +214,13 @@ Follow these steps to upload this project to your public GitHub repository:
 
 ---
 
-## 📄 License
+## Author
+
+- **Mehdi Hossen Fahim**
+- GitHub: [@MehdiHossenFahim](https://github.com/MehdiHossenFahim)
+- Repository: [bank-management](https://github.com/MehdiHossenFahim/bank-management)
+
+---
+
+## License
 This project is open-source and available under the MIT License.

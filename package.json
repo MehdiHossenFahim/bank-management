@@ -1,8 +1,15 @@
 {
-  "name": "bank-management-system",
+  "name": "bank-management",
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "description": "Modern React and Vite Bank Management System with account balance, deposit, withdraw, and transaction history.",
+  "author": "Mehdi Hossen Fahim <mehdihossenfahim100@gmail.com> (https://github.com/MehdiHossenFahim)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MehdiHossenFahim/bank-management.git"
+  },
+  "homepage": "https://github.com/MehdiHossenFahim/bank-management#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
